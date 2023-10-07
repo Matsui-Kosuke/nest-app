@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   api:
+    container_name: nest-app-api
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,6 +16,7 @@ services:
     depends_on:
       - db
   db:
+    container_name: nest-app-db
     image: mysql:8.0
     restart: always
     ports:
@@ -25,4 +27,4 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
-      - ./db/data:/var/lib/mysql
+      - .docker/db/data:/var/lib/mysql
