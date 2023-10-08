@@ -8,3 +8,7 @@ shell:
 	docker exec -it nest-app-api su -s /bin/bash
 sql:
 	docker exec -it nest-app-db /bin/bash -c "mysql -ppassword"
+migrate:
+	@docker exec -it nest-app-api su -s /bin/bash -c "\
+		npx prisma migrate dev --name init && \
+		npx prisma generate"
