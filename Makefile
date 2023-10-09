@@ -8,6 +8,8 @@ shell:
 	docker exec -it nest-app-api su -s /bin/bash
 start:
 	@docker exec -it nest-app-api /bin/bash -c "yarn start"
+seed:
+	@docker exec -it nest-app-api /bin/bash -c "npx prisma db seed"
 sql:
 	docker exec -it nest-app-db /bin/bash -c "mysql -ppassword"
 migrate:
